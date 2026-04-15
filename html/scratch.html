@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sideline Reporting</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+   /* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Page */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to bottom, #fff4f8, #ffeaf2);
+  color: #4a3a42;
+  line-height: 1.6;
+}
+
+/* Top Navigation */
+.topnav {
+  background: rgba(180, 106, 136, 0.95);
+  padding: 16px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.topnav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.topnav a:hover {
+  color: #ffd6e6;
+  transform: translateY(-2px);
+}
+
+/* Hero Header */
+.header {
+  min-height: 85vh;
+  background: linear-gradient(rgba(120, 60, 85, 0.5), rgba(120, 60, 85, 0.5)),
+    url("../css/sideline.jpeg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.header-overlay {
+  max-width: 760px;
+  color: white;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  padding: 40px 30px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+  margin-bottom: 12px;
+  color: #ffd6e6;
+}
+
+.header h1 {
+  font-size: 3rem;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.intro {
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  color: #fff3f8;
+}
+
+.jump-link {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #ffcade;
+  color: #7a4259;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+.jump-link:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Main content */
+.page-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* Sections */
+.section {
+  background: #fffafd;
+  padding: 32px;
+  margin-bottom: 28px;
+  border-radius: 22px;
+  box-shadow: 0 10px 30px rgba(180, 106, 136, 0.08);
+  border: 1px solid #f8dce8;
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  color: #a05274;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #f3cddd;
+  padding-bottom: 8px;
+}
+
+.section p,
+.section li {
+  font-size: 1rem;
+  color: #5a4a51;
+}
+
+/* Ordered / unordered list */
+ol {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+ul {
+  padding-left: 22px;
+  margin-top: 8px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Image section */
+.three {
+  text-align: center;
+}
+
+.three img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 18px;
+  margin-top: 16px;
+  box-shadow: 0 12px 28px rgba(120, 60, 85, 0.16);
+}
+
+.caption {
+  margin-top: 14px;
+  font-style: italic;
+  color: #8b6475;
+}
+
+/* Media boxes */
+.media-box,
+.tableau-box {
+  margin-top: 18px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(120, 60, 85, 0.12);
+  background: #fff1f6;
+}
+
+/* Iframes */
+iframe {
+  width: 100%;
+  height: 420px;
+  border: none;
+  display: block;
+  border-radius: 18px;
+}
+
+/* Links section */
+.links {
+  text-align: center;
+}
+
+.links a {
+  display: inline-block;
+  margin: 10px 10px 0;
+  padding: 12px 22px;
+  background: #c06c91;
+  color: white;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.links a:hover {
+  background: #d989a9;
+  transform: translateY(-2px);
+}
+
+/* Alternate section accents */
+.one {
+  border-left: 6px solid #f4b6cc;
+}
+
+.two {
+  border-left: 6px solid #e89ab6;
+}
+
+.three {
+  border-left: 6px solid #d97c9f;
+}
+
+.four {
+  border-left: 6px solid #c96c8f;
+}
+
+.five {
+  border-left: 6px solid #b85b80;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2.2rem;
+  }
+
+  .intro {
+    font-size: 1rem;
+  }
+
+  .topnav {
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 14px 20px;
+  }
+
+  .section {
+    padding: 24px;
+  }
+
+  iframe {
+    height: 260px;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <div class="topnav">
+    <a href="index.html">Home</a>
+    <a href="resume.html">Resume</a>
+    <a href="app.html">Game</a>
+  </div>
+
+  <header class="header" id="top">
+    <div class="header-overlay">
+      <h1>The Art of Sideline Reporting</h1>
+      <p class="intro">
+        Sideline reporting is more than just talking about the game. It combines preparation,
+        confidence, storytelling, and real-time communication to bring fans closer to the action.
+      </p>
+      <a class="jump-link" href="#video-section">Watch the Video</a>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+
+    <div class="section one">
+      <h2>Why I Love Sideline Reporting</h2>
+      <p>
+        What draws me to sideline reporting is the energy of live events and the chance to tell compelling stories in fast-paced environments. Sideline reporters bring the game to life by giving audiences a deeper look at the emotion, preparation, and strategy that go far beyond the scoreboard.
+      </p>
+    </div>
+
+    <div class="section two">
+      <h2>Important Skills for a Sideline Reporter</h2>
+      <ol>
+        <li>Strong communication skills
+          <ul>
+            <li>Interviewing athletes and coaches</li>
+            <li>Speaking clearly on camera</li>
+            <li>Writing concise questions and scripts</li>
+          </ul>
+        </li>
+        <li>Preparation and Research</li>
+        <li>Confidence in Live Broadcasts</li>
+      </ol>
+    </div>
+
+    <div class="section three">
+      <h2>Me!</h2>
+      <img src="../css/sideline.jpeg" alt="Aleigha Sports Reporting Image">
+      <p class="caption">
+        Here's a picture of me sideline reporting at a BYU women's basketball game!
+      </p>
+    </div>
+
+    <div class="section four" id="video-section">
+      <h2>Sideline Reporting Video</h2>
+      <p>
+        Check out this video that demonstrates what it's like to be a sideline reporter!
+      </p>
+      <div class="media-box">
+        <iframe 
+          src="https://www.youtube.com/embed/tU58LsYEttU" 
+          title="Sideline Reporting Video"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <div class="section five">
+      <h2>Interactive Tableau Graph</h2>
+      <p>
+        Check out this cool Tableau graph showing the distribution of SAT scores across different colleges!
+      </p>
+      <div class="media-box tableau-box">
+        <iframe
+          src="https://public.tableau.com/views/RegionalSampleWorkbook/College?:showVizHome=no"
+          title="Interactive Tableau graph">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="section links">
+      <h2>Explore More</h2>
+      <a href="app.html">Go to My Game</a>
+      <a href="#top">Back to Top</a>
+      <a href="index.html">Back to Home</a>
+    </div>
+
+  </main>
+
+</body>
+</html>
